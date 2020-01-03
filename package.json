@@ -1,0 +1,29 @@
+{
+  "name": "lodown-mmiriammxoxo",
+  "version": "1.0.0",
+  "description": "my lodown project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "instanbul cover _mocha -- test -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmiriammxoxo/lodown.git"
+  },
+  "author": "Miriam Schaefer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmiriammxoxo/lodown/issues"
+  },
+  "homepage": "https://github.com/mmiriammxoxo/lodown#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "i": "^0.3.6",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.2.2",
+    "sinon": "^8.0.2"
+  }
+}
