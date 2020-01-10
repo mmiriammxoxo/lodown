@@ -7,7 +7,7 @@
  * action Function to each value in the collection.
  * 
  * @param {Array or Object} collection: The collection over which to iterate.
- * @param {Function} action: The Function to be applied to each value in the 
+ * @param {Function} functn: The Function to be applied to each value in the 
  * collection
  */
 function each(collection, functn) {
@@ -38,7 +38,7 @@ module.exports.identity = identity;
  * typeOf: Designed to return the data type of the input value as a string. 
  * 
  * @param {Any value} value: The value that will be evaluated for it's data type.
- * @return {String} string: String that defines data type.
+ * @return {String} : String that defines data type.
  */
 function typeOf(value) {
    if (Array.isArray(value) === true) {
@@ -62,7 +62,7 @@ module.exports.typeOf = typeOf;
  * @param {Array} array: The array of which a certain number of elements
  * will be returned.
  * @param {Number} number: The number to determine how many elements to return.
- * @return {Array} array: Array that holds output.
+ * @return {Array} : Array that holds output.
  */
 function first(array, number) {
     if (Array.isArray(array) === false || number < 0 ) {
@@ -88,7 +88,7 @@ module.exports.first = first;
  * 
  * @param {Array} array: The array to iterate over.
  * @param {Number} number: The number to define how many elements to return.
- * @return {Array} array: The array that holds output.
+ * @return {Array} : The array that holds output.
  */
 function last(array, number){
     if (Array.isArray(array) === false || number < 0 ) {
@@ -113,7 +113,7 @@ module.exports.last = last;
  * 
  * @param {Array} array: The array to iterate over.
  * @param {Any value} value: The value to be matched.
- * @return {Number} number: Index or -1. 
+ * @return {Number} : Index or -1. 
  */
 function indexOf(array, value){
     for (var i = 0; i < array.length; i++) {
@@ -130,7 +130,7 @@ module.exports.indexOf = indexOf;
  * 
  * @param {Array} array: Array to examine.
  * @param {Any value} value: Value to match.
- * @return {Boolean} boolean: True or false.
+ * @return {Boolean} : True or false.
  */
 function contains(array, value){
    return (array.includes(value)) ? true : false;
@@ -141,8 +141,8 @@ module.exports.contains = contains;
  * unique: Designed to return a new array without any of the duplicates the
  * given array may contain.
  * 
- * @param {Array} array: Array to filter of duplicates.
- * @return {Array} array: Array that contains no duplicates.
+ * @param {Array} inputArray: Array to filter of duplicates.
+ * @return {Array} : Array that contains no duplicates.
  */
 function unique(inputArray) {
     var noDoubles = [inputArray[0]];
@@ -158,9 +158,9 @@ module.exports.unique = unique;
  * filter: Designed to access each element of an array and 
  * apply the function to filter out the elements that pass true.
  *
- * @param {Array} array: The array that holds the values to be checked.
- * @param {Function} function: The function to be applied to each element.
- * @return {Array} array: Array that contains the elements that returned true.
+ * @param {Array} arr: The array that holds the values to be checked.
+ * @param {Function} funcn: The function to be applied to each element.
+ * @return {Array} : Array that contains the elements that returned true.
  */
 function filter(arr, funcn){
    var outP=[];
@@ -177,9 +177,9 @@ module.exports.filter = filter;
  * reject: Designed to access each element of a provided array and 
  * apply the function to filter out the elements that do not pass a condition. 
  *
- * @param {Array} array: The array that holds the values to be checked.
- * @param {Function} function: The function that is applied to each element.
- * @return {Array} array: Array that holds all the elements that returned false.
+ * @param {Array} arr: The array that holds the values to be checked.
+ * @param {Function} func: The function that is applied to each element.
+ * @return {Array} : Array that holds all the elements that returned false.
  */
 function reject(arr, func) {
     var rejArr = [];
@@ -197,8 +197,8 @@ module.exports.reject = reject;
  * the function to determine which elements return true and which return false.
  *
  * @param {Array} array: The array that holds the values to be checked.
- * @param {Function} function: The function that is applied to each element.
- * @return {Array} array: Array that holds two sub-arrays, one containing the 
+ * @param {Function} fun: The function that is applied to each element.
+ * @return {Array} : Array that holds two sub-arrays, one containing the 
  * elements that returned true, the other one containing the ones that 
  * returned false.
  */
@@ -221,8 +221,8 @@ module.exports.partition = partition;
  * 
  * @param {Array or Object} collection: The collection that holds the elements 
  * to be manipulated.
- * @param {Function} function: The function to be called on each element.
- * @return {Array} array: Array that holds altered values.
+ * @param {Function} fun: The function to be called on each element.
+ * @return {Array} : Array that holds altered values.
  */
 function map(collection, fun) {
      var alteredArr = [];
@@ -236,9 +236,9 @@ module.exports.map = map;
 /**
  * pluck: Designed to access and return all key values from an array of objects.
  *
- * @param {Array of Objects} array: Array that holds the objects to be accessed.
- * @param {Property} property: The property that is accessed.
- * @return {Array} array: Array that holds key values.
+ * @param {Array} objArr: Array that holds the objects to be accessed.
+ * @param {String} prop: The property that is accessed.
+ * @return {Array} : Array that holds key values.       
  */
 function pluck(objArr, prop) {
     var values =[];
@@ -252,10 +252,13 @@ module.exports.pluck = pluck;
  /**
  * every: Designed to call function for every element of the collection and 
  * return a boolean value on whether all calls return true or not.
+ * Edge cases: If the function is not provided the every function evaluates 
+ * the elements of the collection by their boolean values and returns true 
+ * if all elements have a truthy value and false otherwise.
  *
  * @param {Array or Object} collection: The collection over which to iterate.
- * @param {Function} function: The function to be called on each value.
- * @return {Boolean} boolean: True or false.
+ * @param {Function} fun: The function to be called on each value.
+ * @return {Boolean} : True or false.
  */
 function every(collection, fun) {
     var results=[];
@@ -281,10 +284,13 @@ module.exports.every = every;
  /**
  * some: Designed to call function for every element of the collection and 
  * return a boolean value on whether any calls return true or not.
+ * Edge cases: If the function parameter is not provided the some function
+ * evaluates the elements of the collection by their boolean values and returns
+ * true if any elements have a truthy value and false if none of them do.
  * 
  * @param {Array or Object} collection: The collection over which to iterate.
- * @param {Function} function: The function to be called on each value.
- * @return {Boolean} boolean: True or false.
+ * @param {Function} fun: The function to be called on each value.
+ * @return {Boolean} : True or false.
  */
 function some(collection, fun)  {
     var results=[];
@@ -317,10 +323,10 @@ module.exports.some = some;
  * at the end of each iteration.
  *
  * @param {Array} array: Array to iterate over.
- * @param {Function} function: Function to invoke on each element passing a 
+ * @param {Function} fun: Function to invoke on each element passing a 
  * seed value.
- * @param {Any value} value: Value to pass as initial seed value.
- * @return {Any value} value: Manipulated value.
+ * @param {Any value} seed: Value to pass as initial seed value.
+ * @return {Any value} : Manipulated value.
  * 
  */
 function reduce(array, fun, seed) {
@@ -343,8 +349,8 @@ module.exports.reduce = reduce;
  * extend: Designed to call each function to access all objects from arguments 
  * array and copy values to first object.
  * 
- * @param {Object/s} object/s: The object/s which to iterate over.
- * @return {Object} object: The updated object.
+ * @param {Object/s} objects: The object/s which to iterate over.
+ * @return {Object} : The updated object.
  */
 function extend(...objects){
     var objsArr = Array.from(arguments);
